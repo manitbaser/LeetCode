@@ -1,6 +1,6 @@
 class Solution {
 public:
-    string convert(string s, int numRows) {
+    string convert(string& s, int numRows) {
         if(numRows==1||numRows>=s.length()) return s;
         string ans = s;
         int n = 0;
