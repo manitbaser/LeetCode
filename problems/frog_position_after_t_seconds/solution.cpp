@@ -11,7 +11,6 @@ public:
         queue<int> q, temp;
         q.push(1);
         while(--t>=0 && q.size()){
-            temp = queue<int>();
             while(q.size()){
                 int flag = 0;
                 for(int i = 0; i<dir[q.front()].size();i++){
@@ -23,14 +22,13 @@ public:
                 for(int i = 0; i<dir[q.front()].size();i++){
                     if(prob[dir[q.front()][i]]==0){
                         prob[dir[q.front()][i]] = flag*prob[q.front()];
-                        // cout<<dir[q.front()][i]<<" "<<prob[dir[q.front()][i]]<<endl;
                     }
                 }
                 if(flag) prob[q.front()] = -1;
-                // cout<<q.front()<<" "<<prob[q.front()]<<endl;
                 q.pop();
             }
             q = temp;
+            temp = queue<int>();
         }
         if(prob[target]<=0) return 0;
         return (double)1/prob[target];
